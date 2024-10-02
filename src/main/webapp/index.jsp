@@ -5,8 +5,7 @@
     <title>JSP</title>
 </head>
 <body>
-<h1><%= "Hi! I am student of group 408" %></h1>
-<h1><%= "Andrianov Alexander" %></h1>
+<h1><%= "Hi! My name is Alexander." %></h1>
 <br/>
 <a href="https://github.com/andr1anovx">Check my GitHub</a>
 </body>
