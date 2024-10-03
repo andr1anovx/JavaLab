@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
     <title>Home Page</title>
     <style>
@@ -41,11 +41,30 @@
             box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        table {
+            width: 80%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+            overflow: hidden;
         }
+
+        table th, table td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #6a11cb;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
     </style>
 </h:head>
 <h:body>
@@ -53,7 +72,23 @@
 
     <h:form>
         <h:commandButton value="About Me" action="about.xhtml" styleClass="button"/>
-        <h:commandButton value="Support" action="support.xhtml" styleClass="button"/>
+        <h:commandButton value="Registration" action="form.xhtml" styleClass="button"/>
     </h:form>
+
+    <h2>My Data</h2>
+    <h:dataTable value="#{controller.dataList}" var="user">
+        <h:column>
+            <f:facet name="header">First Name</f:facet>
+            #{user.firstName}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Last Name</f:facet>
+            #{user.lastName}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Email</f:facet>
+            #{user.email}
+        </h:column>
+    </h:dataTable>
 </h:body>
 </html>
