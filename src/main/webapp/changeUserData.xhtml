@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+    <title>Edit User</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #333;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            max-width: 90%;
+        }
+
+        .page-title {
+            text-align: center;
+            color: #2575fc;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .form-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #555;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            color: #555;
+        }
+
+        .form-button {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .form-button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 1em;
+            font-weight: bold;
+            color: #2575fc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #6a11cb;
+        }
+
+        .validation-messages {
+            color: red;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <div class="container">
+        <h1 class="page-title">Settings</h1>
+
+        <h:form>
+            <h:messages styleClass="validation-messages" globalOnly="true" />
+
+            <h:panelGrid columns="1">
+                <h:outputLabel for="id" value="User ID: #{userBean.user.id}" styleClass="form-label" />
+                <h:inputHidden id="id" value="#{userBean.user.id}" />
+
+                <h:outputLabel for="name" value="Full Name" styleClass="form-label" />
+                <h:inputText id="name" value="#{userBean.user.name}"
+                             required="true"
+                             requiredMessage="Name is required"
+                             styleClass="form-input" />
+
+                <h:outputLabel for="email" value="Email:" styleClass="form-label" />
+                <h:inputText id="email" value="#{userBean.user.email}"
+                             required="true"
+                             requiredMessage="Email is required"
+                             styleClass="form-input" />
+
+                <h:message for="name" styleClass="validation-messages" />
+                <h:message for="email" styleClass="validation-messages" />
+
+                <h:commandButton value="Save Changes"
+                                 action="#{userBean.updateUser()}"
+                                 styleClass="form-button" />
+            </h:panelGrid>
+        </h:form>
+
+        <h:form>
+            <h:commandButton value="Back Home" action="home.xhtml" styleClass="button"/>
+        </h:form>
+    </div>
+</h:body>
+</html>

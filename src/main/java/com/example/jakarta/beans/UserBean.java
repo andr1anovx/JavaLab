@@ -35,7 +35,7 @@ public class UserBean {
 
     public String editUser(Long id) {
         user = userService.findById(id);
-        return "editUser";
+        return "changeUserData";
     }
 
     public String updateUser() {

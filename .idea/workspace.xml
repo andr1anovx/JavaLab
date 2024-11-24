@@ -10,7 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35d6d052-b9bb-491d-824c-dda806f370c7" name="Changes" comment="Major Update">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/changeUserData.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/08fe3de9-c226-4f88-8235-c4422c19ce1d.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/08fe3de9-c226-4f88-8235-c4422c19ce1d/storage_v2/_src_/database/mydb.Kl8zAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/08fe3de9-c226-4f88-8235-c4422c19ce1d/storage_v2/_src_/database/mydb.Kl8zAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/08fe3de9-c226-4f88-8235-c4422c19ce1d/storage_v2/_src_/database/mydb.Kl8zAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/08fe3de9-c226-4f88-8235-c4422c19ce1d/storage_v2/_src_/database/mydb.Kl8zAA/schema/public.abK9xQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jakarta/beans/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jakarta/beans/UserBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +31,7 @@
       <list>
         <option value="jsf" />
         <option value="Class" />
+        <option value="com.intellij.jpb.FlywayMigrationScript" />
       </list>
     </option>
   </component>
@@ -101,7 +111,8 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration name="GlassFish 7.0.19" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 7.0.19" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="GlassFish 7.0.19" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 7.0.19" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="21" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/JavaLab/home.xhtml" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -208,7 +219,8 @@
       <workItem from="1732404823064" duration="903000" />
       <workItem from="1732405766730" duration="2265000" />
       <workItem from="1732409322427" duration="288000" />
-      <workItem from="1732409720897" duration="1964000" />
+      <workItem from="1732409720897" duration="2229000" />
+      <workItem from="1732463396643" duration="4375000" />
     </task>
     <task id="LOCAL-00001" summary="lab5">
       <option name="closed" value="true" />
@@ -226,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732411500022</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Major Update">
+      <option name="closed" value="true" />
+      <created>1732411892655</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732411892655</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
