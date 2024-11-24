@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: #ffffff;
+            color: #2575fc;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .button:hover {
+            background-color: #2575fc;
+            color: #ffffff;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .user-table, table {
+            width: 80%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        table th, table td, .user-table th, .user-table td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        table th, .user-table th {
+            background-color: #6a11cb;
+            color: white;
+        }
+
+        table tr:nth-child(even), .user-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .action-link {
+            color: #2575fc;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .action-link:hover {
+            color: #6a11cb;
+        }
+    </style>
+</h:head>
+<h:body>
+
+    <h:form>
+        <h:commandButton value="About Me" action="about.xhtml" styleClass="button"/>
+        <h:commandButton value="Registration" action="registration.xhtml" styleClass="button"/>
+    </h:form>
+
+    <h:outputText value="Total users: #{userBean.userCount}" styleClass="user-count-display"/>
+
+    <h:form>
+        <h:commandButton value="Create New User" action="createUser" styleClass="button"/>
+    </h:form>
+
+    <h:dataTable value="#{userBean.users}" var="user" styleClass="user-table">
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            <h:outputText value="#{user.id}" styleClass="user-id"/>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Name</f:facet>
+            <h:outputText value="#{user.name}" styleClass="user-name"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">Email</f:facet>
+            <h:outputText value="#{user.email}" styleClass="user-email"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">Actions</f:facet>
+            <h:form class="actions-form">
+                <h:commandLink value="Edit" action="#{userBean.editUser(user.id)}" styleClass="action-link"/>
+                <h:commandLink value="Delete" action="#{userBean.deleteUser(user.id)}" styleClass="action-link"/>
+            </h:form>
+        </h:column>
+    </h:dataTable>
+
+    <h:form>
+        <h:commandButton value="Load Full Names and Email Lengths" action="#{userBean.loadUserFullNamesAndEmailLength}"/>
+    </h:form>
+
+    <h:form>
+        <h:outputLabel value="Search users by name substring:" for="substring"/>
+        <h:inputText id="substring" value="#{userBean.substring}" />
+        <h:commandButton value="Search" action="#{userBean.searchUsersWithSubstring}"/>
+    </h:form>
+
+    <h:dataTable value="#{userBean.usersWithSubstring}" var="userSubstring">
+        <h:column>
+            <f:facet name="header">User with Substring</f:facet>
+            <h:outputText value="#{userSubstring}"/>
+        </h:column>
+    </h:dataTable>
+
+    <h:dataTable value="#{userBean.userInfoList}" var="userInfo" styleClass="user-table">
+        <h:column>
+            <f:facet name="header">User Info</f:facet>
+            <h:outputText value="#{userInfo}"/>
+        </h:column>
+    </h:dataTable>
+</h:body>
+</html>

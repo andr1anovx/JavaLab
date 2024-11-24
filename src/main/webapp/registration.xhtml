@@ -74,36 +74,75 @@
          font-size: 1.1em;
       }
 
+      .validation-messages {
+         color: red;
+         margin-bottom: 15px;
+         font-weight: bold;
+      }
+
       form {
          display: flex;
          flex-direction: column;
          align-items: center;
          margin-top: 20px;
       }
+
+      /* Стиль для success-сообщений */
+      .success-message {
+         color: green;
+         font-weight: bold;
+         text-align: center;
+         margin-top: 20px;
+      }
+
+      /* Стиль для ссылки на возврат */
+      .back-link {
+         display: inline-block;
+         margin-top: 20px;
+         color: #007bff;
+         text-decoration: none;
+         font-weight: bold;
+      }
+
+      .back-link:hover {
+         text-decoration: underline;
+      }
+
+      /* Для responsive дизайна */
+      @media (max-width: 768px) {
+         .form-grid {
+            grid-template-columns: 1fr;
+         }
+      }
+
    </style>
 </h:head>
 <h:body>
    <h1>Registration Page</h1>
 
    <h:form>
-      <h:panelGrid styleClass="form-grid">
-         <h:outputLabel value="First Name:" for="firstName"/>
-         <h:inputText id="firstName" value="#{controller.firstName}" required="true" requiredMessage="First name is required"/>
 
-         <h:outputLabel value="Last Name:" for="lastName"/>
-         <h:inputText id="lastName" value="#{controller.lastName}" required="true" requiredMessage="Last name is required"/>
+      <h:panelGrid styleClass="form-grid">
+         <h:outputLabel value="Full Name:" for="fullName"/>
+         <h:inputText id="fullName" value="#{userBean.user.name}" required="true" requiredMessage="First name is required"/>
 
          <h:outputLabel value="Email:" for="email"/>
-         <h:inputText id="email" value="#{controller.email}" required="true" requiredMessage="Email is required"/>
+         <h:inputText id="email" value="#{userBean.user.email}" required="true" requiredMessage="Email is required"/>
       </h:panelGrid>
 
-      <h:commandButton value="Submit" action="#{controller.submitButtonPressed}" styleClass="button"/>
+      <h:commandButton value="Create User" action="#{userBean.createUser}" styleClass="button"/>
       <h:messages styleClass="message"/>
+
+      <h:messages styleClass="validation-messages" globalOnly="true" />
    </h:form>
 
    <h:form>
-      <h:commandButton value="Home" action="index.xhtml" styleClass="button"/>
+      <h:commandButton value="Home" action="home.xhtml" styleClass="button"/>
       <h:commandButton value="About Me" action="about.xhtml" styleClass="button"/>
    </h:form>
+
+   <h:outputText value="User #{userBean.user.name} was successfully created!"
+                 rendered="#{not empty userBean.user.name}" styleClass="success-message" />
+
 </h:body>
 </html>
